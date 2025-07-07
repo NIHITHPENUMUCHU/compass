@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'wouter';
-import { Compass, Sun, Moon, Lock, Menu, X } from 'lucide-react';
+import { Compass, Sun, Moon, Menu, X } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -62,13 +62,6 @@ export const Header = () => {
               >
                 About
               </Link>
-              <Link 
-                to="/admin" 
-                className="flex items-center space-x-1 text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
-              >
-                <Lock size={16} />
-                <span>Admin</span>
-              </Link>
             </motion.div>
             
             <motion.button
@@ -119,14 +112,6 @@ export const Header = () => {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About
-                </Link>
-                <Link 
-                  to="/admin" 
-                  className="flex items-center px-3 py-2 rounded-md text-base font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-700"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  <Lock size={16} className="mr-2" />
-                  Admin
                 </Link>
               </div>
             </motion.div>

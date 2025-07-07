@@ -5,35 +5,35 @@
 @tailwind utilities;
 
 :root {
-  /* Light mode colors */
-  --primary: #273E47;
-  --primary-light: #3A5561;
-  --primary-dark: #1A2B33;
-  --primary-rgb: 39, 62, 71;
+  /* Light mode colors - Improved contrast */
+  --primary: #2563EB;
+  --primary-light: #3B82F6;
+  --primary-dark: #1D4ED8;
+  --primary-rgb: 37, 99, 235;
   
   /* Backgrounds */
   --bg-primary: #FFFFFF;
   --bg-secondary: #F8F9FA;
   --bg-tertiary: #F0F2F5;
   
-  /* Text colors */
-  --text-primary: #1F2937;
-  --text-secondary: #6B7280;
-  --text-tertiary: #9CA3AF;
-  --text-innovai: #273E47;
+  /* Text colors - High contrast for light mode */
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-tertiary: #6B7280;
+  --text-innovai: #2563EB;
   
   /* Border colors */
   --border-primary: #E5E7EB;
   --border-secondary: #D1D5DB;
   
   /* Gradients */
-  --primary-gradient: linear-gradient(135deg, #273E47 0%, #3A5561 100%);
-  --accent-gradient: linear-gradient(45deg, #273E47 0%, #1A2B33 100%);
-  --hero-gradient: linear-gradient(135deg, rgba(39, 62, 71, 0.1) 0%, rgba(58, 85, 97, 0.05) 100%);
+  --primary-gradient: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+  --accent-gradient: linear-gradient(45deg, #2563EB 0%, #1D4ED8 100%);
+  --hero-gradient: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
   
   /* Shadows */
   --shadow-primary: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  --shadow-glow: 0 0 20px rgba(39, 62, 71, 0.3);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.3);
 }
 
 .dark {
