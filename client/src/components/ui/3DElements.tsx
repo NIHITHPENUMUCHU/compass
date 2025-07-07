@@ -11,17 +11,6 @@ export const FloatingCard: React.FC<{
     initial={{ y: 20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     transition={{ delay, duration: 0.6, ease: "easeOut" }}
-    whileHover={{ 
-      y: -10, 
-      scale: 1.02,
-      rotateX: 5,
-      rotateY: 5,
-      transition: { duration: 0.3 }
-    }}
-    style={{
-      transformStyle: 'preserve-3d',
-      perspective: 1000
-    }}
   >
     {children}
   </motion.div>
@@ -86,36 +75,8 @@ export const HolographicCard: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className = '' }) => {
-  const [rotateX, setRotateX] = React.useState(0);
-  const [rotateY, setRotateY] = React.useState(0);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const rotateXValue = (e.clientY - centerY) / 10;
-    const rotateYValue = (centerX - e.clientX) / 10;
-    
-    setRotateX(rotateXValue);
-    setRotateY(rotateYValue);
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
-
   return (
-    <div
-      className={`relative transform-gpu transition-transform duration-300 ${className}`}
-      style={{
-        transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-        transformStyle: 'preserve-3d'
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+    <div className={`relative ${className}`}>
       {children}
     </div>
   );
@@ -141,35 +102,9 @@ export const Tilt3D: React.FC<{
   children: React.ReactNode;
   className?: string;
   maxTilt?: number;
-}> = ({ children, className = '', maxTilt = 15 }) => {
-  const [transform, setTransform] = React.useState('');
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const centerX = rect.left + rect.width / 2;
-    const centerY = rect.top + rect.height / 2;
-    const rotateX = ((e.clientY - centerY) / rect.height) * maxTilt;
-    const rotateY = ((centerX - e.clientX) / rect.width) * maxTilt;
-    
-    setTransform(
-      `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`
-    );
-  };
-
-  const handleMouseLeave = () => {
-    setTransform('perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)');
-  };
-
+}> = ({ children, className = '' }) => {
   return (
-    <div
-      className={`transform-gpu transition-transform duration-300 ease-out ${className}`}
-      style={{ 
-        transform,
-        transformStyle: 'preserve-3d'
-      }}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
+    <div className={`${className}`}>
       {children}
     </div>
   );

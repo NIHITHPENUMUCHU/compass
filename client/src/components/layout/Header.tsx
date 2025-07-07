@@ -28,7 +28,7 @@ export const Header = () => {
               <div className="relative bg-white dark:bg-gray-800 rounded-full p-2">
                 <Compass 
                   size={32} 
-                  className="text-primary-600 dark:text-primary-400"
+                  className="text-[var(--primary)]"
                 />
               </div>
             </motion.div>
@@ -52,19 +52,19 @@ export const Header = () => {
             >
               <Link 
                 to="/categories" 
-                className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
               >
                 Categories
               </Link>
               <Link 
                 to="/about" 
-                className="text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
               >
                 About
               </Link>
               <Link 
                 to="/admin" 
-                className="flex items-center space-x-1 text-gray-600 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300"
+                className="flex items-center space-x-1 text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
               >
                 <Lock size={16} />
                 <span>Admin</span>
@@ -77,9 +77,8 @@ export const Header = () => {
                 theme === 'dark' 
                   ? 'bg-gray-700 text-yellow-300' 
                   : 'bg-gray-100 text-gray-700'
-              } hover:scale-110`}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
+              }`}
+              whileTap={{ scale: 0.95 }}
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
@@ -91,7 +90,7 @@ export const Header = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <span className="sr-only">Open menu</span>
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {isMobileMenuOpen ? <X size={24} className="text-[var(--text-primary)]" /> : <Menu size={24} className="text-[var(--text-primary)]" />}
             </button>
           </div>
         </div>
@@ -109,21 +108,21 @@ export const Header = () => {
               <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
                 <Link 
                   to="/categories" 
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-700"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Categories
                 </Link>
                 <Link 
                   to="/about" 
-                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-700"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About
                 </Link>
                 <Link 
                   to="/admin" 
-                  className="flex items-center px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-50 dark:hover:bg-gray-700"
+                  className="flex items-center px-3 py-2 rounded-md text-base font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-700"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   <Lock size={16} className="mr-2" />

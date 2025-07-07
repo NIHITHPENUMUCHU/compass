@@ -6,8 +6,8 @@ import { Tool } from '../types';
 import { SearchBar } from '../components/tools/SearchBar';
 import { CategoryFilter } from '../components/tools/CategoryFilter';
 import { ToolGrid } from '../components/tools/ToolGrid';
-import { FloatingCard, MorphingBlob, ParallaxElement, GlassMorphism } from '../components/ui/3DElements';
-import { LoadingSpinner, CardSkeleton } from '../components/ui/LoadingSpinner';
+import { FloatingCard, GlassMorphism } from '../components/ui/3DElements';
+import { CardSkeleton } from '../components/ui/LoadingSpinner';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 
@@ -70,11 +70,6 @@ export const HomePage = () => {
           key={idx}
           className="inline-block font-kusanagi"
           style={{ color: useInnovaiColor ? 'var(--text-innovai)' : 'var(--primary)' }}
-          whileHover={{
-            y: -8,
-            scale: 1.1,
-            transition: { duration: 0.3, ease: "easeOut" }
-          }}
         >
           {char === ' ' ? '\u00A0' : char}
         </motion.span>
@@ -224,7 +219,6 @@ export const HomePage = () => {
                   {Array.from({ length: totalPages }, (_, i) => (
                     <motion.button
                       key={i + 1}
-                      whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.95 }}
                       onClick={() => setCurrentPage(i + 1)}
                       className={`px-6 py-3 rounded-xl font-kusanagi font-semibold transition-all duration-300 ${

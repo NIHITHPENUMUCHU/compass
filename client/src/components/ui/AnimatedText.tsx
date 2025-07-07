@@ -13,12 +13,7 @@ export const AnimatedText: React.FC<AnimatedTextProps> = ({ text, className = ''
         <motion.span
           key={index}
           className="relative inline-block"
-          whileHover={{
-            y: -5,
-            scale: 1.1,
-            color: '#06b6d4',
-            transition: { duration: 0.2 }
-          }}
+          style={{ color: 'var(--text-primary)' }}
         >
           {char === ' ' ? '\u00A0' : char}
         </motion.span>
