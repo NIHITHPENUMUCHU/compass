@@ -90,6 +90,72 @@ export const expandedTools: Tool[] = [
       { title: 'Generate Copy', description: 'Create marketing content in seconds' }
     ]
   },
+  {
+    id: 'text-5',
+    name: 'Jasper AI',
+    description: 'Enterprise-grade AI writing platform for teams and businesses with brand voice consistency',
+    category: { id: '1', name: 'Text Generation', icon: 'message-square', description: 'AI tools for generating and processing text' },
+    developer: 'Jasper',
+    pricing: { type: 'paid', startingPrice: '$39/month' },
+    features: ['Brand voice training', 'Team collaboration', 'Content templates', 'SEO mode', 'Plagiarism checker'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://jasper.ai',
+    rating: 4.7,
+    reviewCount: 4500,
+    lastUpdated: '2024-02-15',
+    releaseDate: '2021-02-01',
+    tutorialSteps: [
+      { title: 'Set Up Brand Voice', description: 'Train Jasper on your brand voice' },
+      { title: 'Create Content', description: 'Generate on-brand content at scale' }
+    ]
+  },
+  {
+    id: 'text-6',
+    name: 'Writesonic',
+    description: 'AI writing assistant for creating articles, ads, emails, and website copy with SEO optimization',
+    category: { id: '1', name: 'Text Generation', icon: 'message-square', description: 'AI tools for generating and processing text' },
+    developer: 'Writesonic',
+    pricing: { type: 'freemium', startingPrice: '$12.67/month' },
+    features: ['Article writing', 'Ad copy creation', 'SEO optimization', 'Fact-checking', 'Plagiarism detection'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1542744094-24638eff58bb?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://writesonic.com',
+    rating: 4.5,
+    reviewCount: 2800,
+    lastUpdated: '2024-03-01',
+    releaseDate: '2020-08-01',
+    tutorialSteps: [
+      { title: 'Select Tool', description: 'Choose from various writing tools' },
+      { title: 'Generate Content', description: 'AI creates optimized content for you' }
+    ]
+  },
+  {
+    id: 'text-7',
+    name: 'Notion AI',
+    description: 'AI writing assistant integrated into Notion workspace for enhanced productivity and content creation',
+    category: { id: '1', name: 'Text Generation', icon: 'message-square', description: 'AI tools for generating and processing text' },
+    developer: 'Notion',
+    pricing: { type: 'freemium', startingPrice: '$10/month' },
+    features: ['Integrated workspace AI', 'Document generation', 'Meeting notes', 'Task automation', 'Content summarization'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://notion.so',
+    rating: 4.6,
+    reviewCount: 5200,
+    lastUpdated: '2024-03-08',
+    releaseDate: '2023-02-22',
+    tutorialSteps: [
+      { title: 'Enable AI', description: 'Activate Notion AI in your workspace' },
+      { title: 'Use AI Commands', description: 'Type "/" to access AI writing features' }
+    ]
+  },
 
   // Image Creation Tools
   {
@@ -180,6 +246,50 @@ export const expandedTools: Tool[] = [
       { title: 'Choose Template', description: 'Select from millions of templates' }
     ]
   },
+  {
+    id: 'image-5',
+    name: 'Leonardo AI',
+    description: 'AI image generator with focus on game assets, concept art, and creative illustrations',
+    category: { id: '2', name: 'Image Creation', icon: 'image', description: 'AI-powered image generation and editing tools' },
+    developer: 'Leonardo AI',
+    pricing: { type: 'freemium', startingPrice: '$12/month' },
+    features: ['Game asset generation', 'Concept art creation', 'Multiple art styles', 'Image editing tools', 'Community models'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://leonardo.ai',
+    rating: 4.7,
+    reviewCount: 3500,
+    lastUpdated: '2024-02-12',
+    releaseDate: '2023-01-15',
+    tutorialSteps: [
+      { title: 'Create Account', description: 'Sign up for Leonardo AI platform' },
+      { title: 'Generate Art', description: 'Use prompts to create stunning visuals' }
+    ]
+  },
+  {
+    id: 'image-6',
+    name: 'Adobe Firefly',
+    description: 'Adobe\'s AI-powered creative suite for image generation, text effects, and design enhancement',
+    category: { id: '2', name: 'Image Creation', icon: 'image', description: 'AI-powered image generation and editing tools' },
+    developer: 'Adobe',
+    pricing: { type: 'freemium', startingPrice: '$22.99/month' },
+    features: ['Text to image', 'Text effects', 'Generative fill', 'Vector recoloring', 'Creative Cloud integration'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://firefly.adobe.com',
+    rating: 4.6,
+    reviewCount: 12000,
+    lastUpdated: '2024-11-20',
+    releaseDate: '2023-03-21',
+    tutorialSteps: [
+      { title: 'Sign In', description: 'Use your Adobe ID to access Firefly' },
+      { title: 'Create Images', description: 'Generate images with text prompts' }
+    ]
+  },
 
   // Code Assistant Tools
   {
@@ -224,6 +334,50 @@ export const expandedTools: Tool[] = [
     tutorialSteps: [
       { title: 'Create Account', description: 'Sign up for free Replit account' },
       { title: 'Start Project', description: 'Create a new coding project' }
+    ]
+  },
+  {
+    id: 'code-3',
+    name: 'Cursor',
+    description: 'AI-first code editor built for pair programming with AI, featuring advanced code completion and chat',
+    category: { id: '3', name: 'Code Assistant', icon: 'code', description: 'AI tools for coding and development' },
+    developer: 'Cursor',
+    pricing: { type: 'freemium', startingPrice: '$20/month' },
+    features: ['AI-first code editor', 'Advanced code completion', 'AI chat integration', 'Codebase understanding', 'Multi-file editing'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://cursor.sh',
+    rating: 4.8,
+    reviewCount: 2100,
+    lastUpdated: '2024-03-13',
+    releaseDate: '2024-02-14',
+    tutorialSteps: [
+      { title: 'Download Editor', description: 'Install Cursor code editor' },
+      { title: 'Start Coding', description: 'Begin coding with AI assistance' }
+    ]
+  },
+  {
+    id: 'code-4',
+    name: 'Tabnine',
+    description: 'AI code completion tool that learns from your codebase for personalized suggestions',
+    category: { id: '3', name: 'Code Assistant', icon: 'code', description: 'AI tools for coding and development' },
+    developer: 'Tabnine',
+    pricing: { type: 'freemium', startingPrice: '$12/month' },
+    features: ['Personalized completions', 'Team training', 'Privacy-focused', 'Local processing', 'Custom models'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://tabnine.com',
+    rating: 4.5,
+    reviewCount: 4200,
+    lastUpdated: '2024-01-22',
+    releaseDate: '2019-01-01',
+    tutorialSteps: [
+      { title: 'Install Extension', description: 'Add Tabnine to your editor' },
+      { title: 'Train on Codebase', description: 'Let Tabnine learn from your code' }
     ]
   },
 
@@ -272,6 +426,28 @@ export const expandedTools: Tool[] = [
       { title: 'Create Audio', description: 'Generate professional voiceovers' }
     ]
   },
+  {
+    id: 'audio-3',
+    name: 'Speechify',
+    description: 'AI-powered text-to-speech platform that converts any text into natural-sounding audio',
+    category: { id: '4', name: 'Audio & Speech', icon: 'mic', description: 'Voice synthesis and audio processing tools' },
+    developer: 'Speechify',
+    pricing: { type: 'freemium', startingPrice: '$11.58/month' },
+    features: ['Natural text-to-speech', 'Speed control', 'Multiple voices', 'Document scanning', 'Offline listening'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://speechify.com',
+    rating: 4.4,
+    reviewCount: 6200,
+    lastUpdated: '2024-03-09',
+    releaseDate: '2017-01-01',
+    tutorialSteps: [
+      { title: 'Upload Text', description: 'Add text or documents to convert' },
+      { title: 'Listen to Audio', description: 'Play back your text as natural speech' }
+    ]
+  },
 
   // Video Creation Tools
   {
@@ -318,6 +494,28 @@ export const expandedTools: Tool[] = [
       { title: 'Create Videos', description: 'Generate videos from text' }
     ]
   },
+  {
+    id: 'video-3',
+    name: 'Synthesia',
+    description: 'AI video platform for creating professional videos with AI avatars and voiceovers',
+    category: { id: '6', name: 'Video Creation', icon: 'video', description: 'AI-powered video editing and generation tools' },
+    developer: 'Synthesia',
+    pricing: { type: 'freemium', startingPrice: '$30/month' },
+    features: ['AI avatars', 'Text-to-video', 'Multiple languages', 'Custom avatars', 'Professional templates'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://synthesia.io',
+    rating: 4.5,
+    reviewCount: 7500,
+    lastUpdated: '2024-10-20',
+    releaseDate: '2017-12-01',
+    tutorialSteps: [
+      { title: 'Choose Avatar', description: 'Select from 140+ AI avatars' },
+      { title: 'Create Video', description: 'Generate professional videos with AI' }
+    ]
+  },
 
   // App Development Tools
   {
@@ -362,6 +560,28 @@ export const expandedTools: Tool[] = [
     tutorialSteps: [
       { title: 'Connect Sheets', description: 'Link your Google Sheets data' },
       { title: 'Design App', description: 'Customize your mobile app interface' }
+    ]
+  },
+  {
+    id: 'app-3',
+    name: 'FlutterFlow',
+    description: 'Visual app builder for creating Flutter apps with drag-and-drop interface and AI assistance',
+    category: { id: '7', name: 'App Development', icon: 'smartphone', description: 'No-code and AI-powered app building platforms' },
+    developer: 'FlutterFlow',
+    pricing: { type: 'freemium', startingPrice: '$30/month' },
+    features: ['Visual Flutter builder', 'Real-time preview', 'Custom code support', 'Firebase integration', 'App store deployment'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://flutterflow.io',
+    rating: 4.6,
+    reviewCount: 8500,
+    lastUpdated: '2024-11-25',
+    releaseDate: '2021-03-01',
+    tutorialSteps: [
+      { title: 'Start Project', description: 'Create new Flutter app project' },
+      { title: 'Design Interface', description: 'Build UI with drag-and-drop' }
     ]
   },
 
@@ -452,6 +672,28 @@ export const expandedTools: Tool[] = [
     tutorialSteps: [
       { title: 'Take Photo', description: 'Capture image of unknown plant' },
       { title: 'Get Identification', description: 'Receive plant species information' }
+    ]
+  },
+  {
+    id: 'daily-5',
+    name: 'Replika',
+    description: 'AI companion chatbot for emotional support, conversation, and personal growth',
+    category: { id: '8', name: 'Daily Life', icon: 'heart', description: 'AI tools to enhance your everyday life and wellness' },
+    developer: 'Luka',
+    pricing: { type: 'freemium', startingPrice: '$19.99/month' },
+    features: ['AI companion', 'Emotional support', 'Personality development', 'Voice calls', 'Memory retention'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://replika.ai',
+    rating: 4.3,
+    reviewCount: 85000,
+    lastUpdated: '2024-11-18',
+    releaseDate: '2017-11-01',
+    tutorialSteps: [
+      { title: 'Create Replika', description: 'Set up your AI companion' },
+      { title: 'Start Chatting', description: 'Begin conversations and build relationship' }
     ]
   }
 ];
