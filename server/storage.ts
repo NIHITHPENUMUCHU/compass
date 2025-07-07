@@ -1,5 +1,5 @@
-import { db } from "./db";
-import { users, categories, tools, type User, type InsertUser, type Category, type InsertCategory, type Tool, type InsertTool } from "@shared/schema";
+import { db } from "./db.js";
+import { users, categories, tools, type User, type InsertUser, type Category, type InsertCategory, type Tool, type InsertTool } from "../shared/schema.js";
 import { eq } from "drizzle-orm";
 
 export interface IStorage {
@@ -25,62 +25,122 @@ export interface IStorage {
 export class DatabaseStorage implements IStorage {
   // User methods
   async getUser(id: number): Promise<User | undefined> {
-    const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
-    return result[0];
+    try {
+      const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
+      return result[0];
+    } catch (error) {
+      console.error('Database error in getUser:', error);
+      return undefined;
+    }
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    const result = await db.select().from(users).where(eq(users.username, username)).limit(1);
-    return result[0];
+    try {
+      const result = await db.select().from(users).where(eq(users.username, username)).limit(1);
+      return result[0];
+    } catch (error) {
+      console.error('Database error in getUserByUsername:', error);
+      return undefined;
+    }
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const result = await db.insert(users).values(insertUser).returning();
-    return result[0];
+    try {
+      const result = await db.insert(users).values(insertUser).returning();
+      return result[0];
+    } catch (error) {
+      console.error('Database error in createUser:', error);
+      throw error;
+    }
   }
 
   // Category methods
   async getCategories(): Promise<Category[]> {
-    return await db.select().from(categories);
+    try {
+      return await db.select().from(categories);
+    } catch (error) {
+      console.error('Database error in getCategories:', error);
+      return [];
+    }
   }
 
   async getCategoryById(id: string): Promise<Category | undefined> {
-    const result = await db.select().from(categories).where(eq(categories.id, id)).limit(1);
-    return result[0];
+    try {
+      const result = await db.select().from(categories).where(eq(categories.id, id)).limit(1);
+      return result[0];
+    } catch (error) {
+      console.error('Database error in getCategoryById:', error);
+      return undefined;
+    }
   }
 
   async createCategory(category: InsertCategory): Promise<Category> {
-    const result = await db.insert(categories).values(category).returning();
-    return result[0];
+    try {
+      const result = await db.insert(categories).values(category).returning();
+      return result[0];
+    } catch (error) {
+      console.error('Database error in createCategory:', error);
+      throw error;
+    }
   }
 
   // Tool methods
   async getTools(): Promise<Tool[]> {
-    return await db.select().from(tools);
+    try {
+      return await db.select().from(tools);
+    } catch (error) {
+      console.error('Database error in getTools:', error);
+      return [];
+    }
   }
 
   async getToolById(id: string): Promise<Tool | undefined> {
-    const result = await db.select().from(tools).where(eq(tools.id, id)).limit(1);
-    return result[0];
+    try {
+      const result = await db.select().from(tools).where(eq(tools.id, id)).limit(1);
+      return result[0];
+    } catch (error) {
+      console.error('Database error in getToolById:', error);
+      return undefined;
+    }
   }
 
   async getToolsByCategory(categoryId: string): Promise<Tool[]> {
-    return await db.select().from(tools).where(eq(tools.categoryId, categoryId));
+    try {
+      return await db.select().from(tools).where(eq(tools.categoryId, categoryId));
+    } catch (error) {
+      console.error('Database error in getToolsByCategory:', error);
+      return [];
+    }
   }
 
   async createTool(tool: InsertTool): Promise<Tool> {
-    const result = await db.insert(tools).values(tool).returning();
-    return result[0];
+    try {
+      const result = await db.insert(tools).values(tool).returning();
+      return result[0];
+    } catch (error) {
+      console.error('Database error in createTool:', error);
+      throw error;
+    }
   }
 
   async updateTool(id: string, tool: Partial<InsertTool>): Promise<Tool | undefined> {
-    const result = await db.update(tools).set(tool).where(eq(tools.id, id)).returning();
-    return result[0];
+    try {
+      const result = await db.update(tools).set(tool).where(eq(tools.id, id)).returning();
+      return result[0];
+    } catch (error) {
+      console.error('Database error in updateTool:', error);
+      return undefined;
+    }
   }
 
   async deleteTool(id: string): Promise<boolean> {
-    const result = await db.delete(tools).where(eq(tools.id, id)).returning();
-    return result.length > 0;
+    try {
+      const result = await db.delete(tools).where(eq(tools.id, id)).returning();
+      return result.length > 0;
+    } catch (error) {
+      console.error('Database error in deleteTool:', error);
+      return false;
+    }
   }
 }
 
@@ -95,6 +155,33 @@ export class MemStorage implements IStorage {
     this.categories = new Map();
     this.tools = new Map();
     this.currentUserId = 1;
+    
+    // Initialize with sample data
+    this.initializeSampleData();
+  }
+
+  private initializeSampleData() {
+    // Add sample categories
+    const sampleCategories = [
+      { id: '1', name: 'Text Generation', icon: 'message-square', description: 'AI tools for generating and processing text' },
+      { id: '2', name: 'Image Creation', icon: 'image', description: 'AI-powered image generation and editing tools' },
+      { id: '3', name: 'Code Assistant', icon: 'code', description: 'AI tools for coding and development' },
+      { id: '4', name: 'Audio & Speech', icon: 'mic', description: 'Voice synthesis and audio processing tools' },
+      { id: '5', name: 'Website Making', icon: 'globe', description: 'AI tools for creating and enhancing websites' },
+      { id: '6', name: 'Video Creation', icon: 'video', description: 'AI-powered video editing and generation tools' },
+      { id: '7', name: 'App Development', icon: 'smartphone', description: 'No-code and AI-powered app building platforms' },
+      { id: '8', name: 'Daily Life', icon: 'heart', description: 'AI tools to enhance your everyday life and wellness' }
+    ];
+
+    sampleCategories.forEach(cat => {
+      const category: Category = {
+        ...cat,
+        description: cat.description,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      };
+      this.categories.set(cat.id, category);
+    });
   }
 
   // User methods
@@ -189,4 +276,5 @@ export class MemStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// Use MemStorage as fallback if database connection fails
+export const storage = process.env.DATABASE_URL ? new DatabaseStorage() : new MemStorage();

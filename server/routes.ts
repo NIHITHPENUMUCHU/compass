@@ -1,15 +1,21 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
-import { insertCategorySchema, insertToolSchema } from "@shared/schema";
+import { storage } from "./storage.js";
+import { insertCategorySchema, insertToolSchema } from "../shared/schema.js";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Health check endpoint
+  app.get("/api/health", (req, res) => {
+    res.json({ status: "ok", timestamp: new Date().toISOString() });
+  });
+
   // Categories API
   app.get("/api/categories", async (req, res) => {
     try {
       const categories = await storage.getCategories();
       res.json(categories);
     } catch (error) {
+      console.error('Error fetching categories:', error);
       res.status(500).json({ message: "Failed to fetch categories" });
     }
   });
@@ -22,6 +28,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       res.json(category);
     } catch (error) {
+      console.error('Error fetching category:', error);
       res.status(500).json({ message: "Failed to fetch category" });
     }
   });
@@ -32,6 +39,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const category = await storage.createCategory(validatedCategory);
       res.status(201).json(category);
     } catch (error) {
+      console.error('Error creating category:', error);
       res.status(400).json({ message: "Invalid category data", error });
     }
   });
@@ -42,6 +50,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const tools = await storage.getTools();
       res.json(tools);
     } catch (error) {
+      console.error('Error fetching tools:', error);
       res.status(500).json({ message: "Failed to fetch tools" });
     }
   });
@@ -54,6 +63,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       res.json(tool);
     } catch (error) {
+      console.error('Error fetching tool:', error);
       res.status(500).json({ message: "Failed to fetch tool" });
     }
   });
@@ -63,6 +73,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const tools = await storage.getToolsByCategory(req.params.id);
       res.json(tools);
     } catch (error) {
+      console.error('Error fetching tools for category:', error);
       res.status(500).json({ message: "Failed to fetch tools for category" });
     }
   });
@@ -73,6 +84,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const tool = await storage.createTool(validatedTool);
       res.status(201).json(tool);
     } catch (error) {
+      console.error('Error creating tool:', error);
       res.status(400).json({ message: "Invalid tool data", error });
     }
   });
@@ -86,6 +98,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       res.json(tool);
     } catch (error) {
+      console.error('Error updating tool:', error);
       res.status(400).json({ message: "Invalid tool data", error });
     }
   });
@@ -98,6 +111,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       res.status(204).send();
     } catch (error) {
+      console.error('Error deleting tool:', error);
       res.status(500).json({ message: "Failed to delete tool" });
     }
   });
