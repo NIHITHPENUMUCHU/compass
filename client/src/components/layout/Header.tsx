@@ -9,7 +9,7 @@ export const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg fixed w-full top-0 z-50 border-b border-gray-200 dark:border-gray-700">
+    <header className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl fixed w-full top-0 z-50 border-b border-gray-200 dark:border-gray-700">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center space-x-3">
@@ -18,16 +18,16 @@ export const Header = () => {
                 rotate: 360
               }}
               transition={{
-                duration: 10,
+                duration: 15,
                 repeat: Infinity,
                 ease: "linear"
               }}
               className="relative"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full blur-lg opacity-75"></div>
-              <div className="relative bg-white dark:bg-gray-800 rounded-full p-2">
+              <div className="absolute -inset-2 bg-[var(--primary-gradient)] rounded-full blur-lg opacity-60 animate-neon-pulse"></div>
+              <div className="relative bg-white dark:bg-gray-900 rounded-full p-3 border-2 border-[var(--primary)]">
                 <Compass 
-                  size={32} 
+                  size={28} 
                   className="text-[var(--primary)]"
                 />
               </div>
@@ -37,7 +37,7 @@ export const Header = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="text-2xl font-bold text-gradient">
+              <span className="text-2xl font-bold text-gradient font-['Orbitron']">
                 InnovAI Compass
               </span>
             </motion.div>
@@ -52,13 +52,13 @@ export const Header = () => {
             >
               <Link 
                 to="/categories" 
-                className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
+                className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-all duration-300 font-['Orbitron'] font-medium"
               >
                 Categories
               </Link>
               <Link 
                 to="/about" 
-                className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors duration-300"
+                className="text-[var(--text-secondary)] hover:text-[var(--primary)] transition-all duration-300 font-['Orbitron'] font-medium"
               >
                 About
               </Link>
@@ -66,24 +66,27 @@ export const Header = () => {
             
             <motion.button
               onClick={toggleTheme}
-              className={`p-2 rounded-full transition-all duration-300 ${
+              className={`p-3 rounded-full transition-all duration-300 ${
                 theme === 'dark' 
-                  ? 'bg-gray-700 text-yellow-300' 
-                  : 'bg-gray-100 text-gray-700'
-              }`}
+                  ? 'bg-gray-800 text-yellow-300 border-2 border-yellow-300/30' 
+                  : 'bg-gray-100 text-gray-700 border-2 border-gray-300'
+              } hover:scale-110 hover:animate-neon-pulse`}
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle theme"
             >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
             </motion.button>
 
             {/* Mobile menu button */}
             <button 
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             >
               <span className="sr-only">Open menu</span>
-              {isMobileMenuOpen ? <X size={24} className="text-[var(--text-primary)]" /> : <Menu size={24} className="text-[var(--text-primary)]" />}
+              {isMobileMenuOpen ? 
+                <X size={24} className="text-[var(--text-primary)]" /> : 
+                <Menu size={24} className="text-[var(--text-primary)]" />
+              }
             </button>
           </div>
         </div>
@@ -98,17 +101,17 @@ export const Header = () => {
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-gray-900 rounded-xl shadow-xl border border-gray-200 dark:border-gray-700">
                 <Link 
                   to="/categories" 
-                  className="block px-3 py-2 rounded-md text-base font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-700"
+                  className="block px-4 py-3 rounded-lg text-base font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-800 transition-all font-['Orbitron']"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Categories
                 </Link>
                 <Link 
                   to="/about" 
-                  className="block px-3 py-2 rounded-md text-base font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-700"
+                  className="block px-4 py-3 rounded-lg text-base font-medium text-[var(--text-primary)] hover:text-[var(--primary)] hover:bg-gray-50 dark:hover:bg-gray-800 transition-all font-['Orbitron']"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   About
