@@ -1,16 +1,18 @@
 import { motion } from 'framer-motion';
 import { useLocation } from 'wouter';
-import { FloatingCard, GlassMorphism } from '../components/ui/3DElements';
+import { FloatingCard, GlassMorphism, CyberGrid, QuantumOrb, MatrixRain } from '../components/ui/3DElements';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { DeveloperProfile } from '../components/ui/DeveloperProfile';
+import { EasterEggs } from '../components/ui/EasterEggs';
+import { FloatingIcons } from '../components/ui/AnimatedIcons';
 
 export const AboutPage = () => {
   const [, setLocation] = useLocation();
   const features = [
     {
       title: 'Comprehensive AI Directory',
-      description: 'Discover 30+ authentic AI tools across multiple categories including text generation, image creation, video editing, and daily life applications.',
+      description: 'Discover 50+ authentic AI tools across multiple categories including text generation, image creation, video editing, and daily life applications.',
       icon: '🤖'
     },
     {
@@ -54,16 +56,22 @@ export const AboutPage = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Interactive Background */}
-      <InteractiveBackground />
+      <InteractiveBackground variant="cyber" />
+      <CyberGrid />
+      <MatrixRain density={8} variant="binary" />
+      <FloatingIcons />
+      <EasterEggs />
       
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        <GradientOrb className="w-96 h-96 top-20 left-20" delay={0} />
-        <GradientOrb className="w-80 h-80 bottom-20 right-20" delay={2} />
+      <div className="background-layer">
+        <GradientOrb className="w-96 h-96 top-20 left-20" delay={0} variant="cyber" />
+        <GradientOrb className="w-80 h-80 bottom-20 right-20" delay={2} variant="energy" />
         <GradientOrb className="w-64 h-64 top-1/2 right-10" delay={4} />
+        <QuantumOrb size={120} className="absolute top-32 right-32" variant="cyber" />
+        <QuantumOrb size={80} className="absolute bottom-32 left-32" variant="energy" />
       </div>
 
-      <div className="relative z-10 py-20">
+      <div className="main-content py-20">
         {/* Hero Section */}
         <motion.section 
           className="text-center mobile-padding mb-20"
@@ -71,18 +79,22 @@ export const AboutPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <FloatingCard delay={0.2}>
-            <GlassMorphism className="inline-block px-6 py-3 rounded-full mb-8">
-              <span className="text-sm font-medium text-gradient font-kusanagi">
-                About InnovAI Compass
-              </span>
+          <FloatingCard delay={0.2} variant="cyber">
+            <GlassMorphism className="inline-block px-8 py-4 rounded-full mb-8" variant="cyber">
+              <motion.span 
+                className="text-sm font-medium text-gradient font-['JetBrains_Mono'] tracking-wider"
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                > ABOUT INNOVAI COMPASS_
+              </motion.span>
             </GlassMorphism>
           </FloatingCard>
 
-          <h1 className="text-5xl md:text-6xl font-black mb-8 text-[var(--text-primary)] font-kusanagi">
-            Navigate the Future of AI
+          <h1 className="text-5xl md:text-6xl font-black mb-8 text-neon font-['Orbitron']">
+            NAVIGATE THE FUTURE OF AI
           </h1>
-          <p className="text-xl text-[var(--text-secondary)] max-w-4xl mx-auto leading-relaxed font-kusanagi">
+          <p className="text-xl text-[var(--text-secondary)] max-w-4xl mx-auto leading-relaxed font-['Inter']">
             InnovAI Compass is your comprehensive guide to discovering and exploring cutting-edge AI tools. 
             We curate the best AI solutions across all categories to help you transform ideas into reality.
           </p>
@@ -95,12 +107,12 @@ export const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
           >
-            <FloatingCard delay={0.6}>
+            <FloatingCard delay={0.6} variant="hologram">
               <GlassMorphism className="p-12 rounded-2xl text-center">
-                <h2 className="text-3xl font-bold text-[var(--text-primary)] font-kusanagi mb-6">
-                  Our Mission
+                <h2 className="text-3xl font-bold text-neon font-['Orbitron'] mb-6">
+                  OUR MISSION
                 </h2>
-                <p className="text-lg text-[var(--text-secondary)] leading-relaxed font-kusanagi">
+                <p className="text-lg text-[var(--text-secondary)] leading-relaxed font-['Inter']">
                   To democratize access to AI technology by providing a centralized platform where creators, 
                   developers, and innovators can discover authentic AI tools that accelerate their projects. 
                   We believe AI should be accessible to everyone, from beginners exploring their first AI tool 
@@ -118,8 +130,8 @@ export const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.8 }}
           >
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] font-kusanagi mb-12 text-center">
-              Why Choose InnovAI Compass
+            <h2 className="text-3xl font-bold text-neon font-['Orbitron'] mb-12 text-center">
+              WHY CHOOSE INNOVAI COMPASS
             </h2>
             <div className="mobile-grid">
               {features.map((feature, index) => (
@@ -129,13 +141,13 @@ export const AboutPage = () => {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
                 >
-                  <FloatingCard delay={1.2 + index * 0.1}>
-                    <div className="card-gradient p-8 h-full">
+                  <FloatingCard delay={1.2 + index * 0.1} variant="cyber">
+                    <div className="card-3d p-8 h-full">
                       <div className="text-4xl mb-4">{feature.icon}</div>
-                      <h3 className="text-xl font-bold text-[var(--text-primary)] font-kusanagi mb-4">
+                      <h3 className="text-xl font-bold text-[var(--text-primary)] font-['Orbitron'] mb-4">
                         {feature.title}
                       </h3>
-                      <p className="text-[var(--text-secondary)] font-kusanagi leading-relaxed">
+                      <p className="text-[var(--text-secondary)] font-['Inter'] leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -153,10 +165,10 @@ export const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.8 }}
           >
-            <FloatingCard delay={2}>
+            <FloatingCard delay={2} variant="hologram">
               <GlassMorphism className="p-12 rounded-2xl">
-                <h2 className="text-3xl font-bold text-[var(--text-primary)] font-kusanagi mb-8 text-center">
-                  Tool Categories
+                <h2 className="text-3xl font-bold text-neon font-['Orbitron'] mb-8 text-center">
+                  TOOL CATEGORIES
                 </h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {categories.map((category, index) => (
@@ -166,9 +178,10 @@ export const AboutPage = () => {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.4, delay: 2.2 + index * 0.1 }}
+                      whileHover={{ scale: 1.05 }}
                     >
                       <div className="gradient-border-inner text-center">
-                        <span className="text-[var(--text-primary)] font-kusanagi font-medium">
+                        <span className="text-[var(--text-primary)] font-['JetBrains_Mono'] font-medium">
                           {category}
                         </span>
                       </div>
@@ -187,21 +200,48 @@ export const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.4 }}
           >
-            <FloatingCard delay={2.6}>
+            <FloatingCard delay={2.6} variant="cyber">
               <GlassMorphism className="p-12 rounded-2xl">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                  <div>
-                    <div className="text-4xl font-black text-gradient font-kusanagi mb-2">30+</div>
-                    <div className="text-[var(--text-secondary)] font-kusanagi">AI Tools</div>
-                  </div>
-                  <div>
-                    <div className="text-4xl font-black text-gradient font-kusanagi mb-2">8</div>
-                    <div className="text-[var(--text-secondary)] font-kusanagi">Categories</div>
-                  </div>
-                  <div>
-                    <div className="text-4xl font-black text-gradient font-kusanagi mb-2">100%</div>
-                    <div className="text-[var(--text-secondary)] font-kusanagi">Authentic</div>
-                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotateY: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.div 
+                      className="text-4xl font-black text-neon font-['Orbitron'] mb-2"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      50+
+                    </motion.div>
+                    <div className="text-[var(--text-secondary)] font-['JetBrains_Mono'] tracking-wider">AI TOOLS</div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotateY: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.div 
+                      className="text-4xl font-black text-neon font-['Orbitron'] mb-2"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+                    >
+                      8
+                    </motion.div>
+                    <div className="text-[var(--text-secondary)] font-['JetBrains_Mono'] tracking-wider">CATEGORIES</div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotateY: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <motion.div 
+                      className="text-4xl font-black text-neon font-['Orbitron'] mb-2"
+                      animate={{ scale: [1, 1.1, 1] }}
+                      transition={{ duration: 2, repeat: Infinity, delay: 1 }}
+                    >
+                      100%
+                    </motion.div>
+                    <div className="text-[var(--text-secondary)] font-['JetBrains_Mono'] tracking-wider">AUTHENTIC</div>
+                  </motion.div>
                 </div>
               </GlassMorphism>
             </FloatingCard>
@@ -215,12 +255,12 @@ export const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 2.8 }}
           >
-            <FloatingCard delay={3}>
+            <FloatingCard delay={3} variant="hologram">
               <GlassMorphism className="p-12 rounded-2xl text-center">
-                <h2 className="text-3xl font-bold text-[var(--text-primary)] font-kusanagi mb-6">
-                  Built with Modern Technology
+                <h2 className="text-3xl font-bold text-neon font-['Orbitron'] mb-6">
+                  BUILT WITH MODERN TECHNOLOGY
                 </h2>
-                <p className="text-lg text-[var(--text-secondary)] leading-relaxed font-kusanagi mb-8">
+                <p className="text-lg text-[var(--text-secondary)] leading-relaxed font-['Inter'] mb-8">
                   InnovAI Compass is built using cutting-edge web technologies including React, TypeScript, 
                   Framer Motion for animations, and PostgreSQL for data management. Our responsive design 
                   ensures a seamless experience across all devices.
@@ -233,9 +273,10 @@ export const AboutPage = () => {
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ duration: 0.3, delay: 3.2 + index * 0.1 }}
+                      whileHover={{ scale: 1.1, rotateZ: 5 }}
                     >
                       <div className="gradient-border-inner">
-                        <span className="text-[var(--primary)] font-kusanagi font-semibold">
+                        <span className="text-[var(--primary)] font-['JetBrains_Mono'] font-semibold">
                           {tech}
                         </span>
                       </div>
@@ -255,20 +296,22 @@ export const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 3.4 }}
           >
-            <FloatingCard delay={3.6}>
+            <FloatingCard delay={3.6} variant="cyber">
               <GlassMorphism className="p-12 rounded-2xl">
-                <h2 className="text-3xl font-bold text-[var(--text-primary)] font-kusanagi mb-6">
-                  Start Your AI Journey Today
+                <h2 className="text-3xl font-bold text-neon font-['Orbitron'] mb-6">
+                  START YOUR AI JOURNEY TODAY
                 </h2>
-                <p className="text-lg text-[var(--text-secondary)] font-kusanagi mb-8">
+                <p className="text-lg text-[var(--text-secondary)] font-['Inter'] mb-8">
                   Explore our comprehensive directory of AI tools and discover the perfect solution for your next project.
                 </p>
-                <button 
+                <motion.button 
                   onClick={() => setLocation('/categories')}
-                  className="btn-primary text-lg px-8 py-4 font-kusanagi"
+                  className="btn-primary text-lg px-10 py-5 font-['Orbitron'] tracking-wider"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                  Explore AI Tools
-                </button>
+                  EXPLORE AI TOOLS
+                </motion.button>
               </GlassMorphism>
             </FloatingCard>
           </motion.div>
@@ -278,7 +321,6 @@ export const AboutPage = () => {
         <DeveloperProfile />
       </div>
 
-      {/* Scroll to Top Button */}
       <ScrollToTop />
     </div>
   );

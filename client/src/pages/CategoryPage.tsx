@@ -6,10 +6,12 @@ import { categories } from '../data/mockCategories';
 import { Tool, Category } from '../types';
 import { SearchBar } from '../components/tools/SearchBar';
 import { ToolGrid } from '../components/tools/ToolGrid';
-import { FloatingCard, GlassMorphism } from '../components/ui/3DElements';
+import { FloatingCard, GlassMorphism, CyberGrid, QuantumOrb, MatrixRain } from '../components/ui/3DElements';
 import { LoadingSpinner, CardSkeleton } from '../components/ui/LoadingSpinner';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
+import { EasterEggs } from '../components/ui/EasterEggs';
+import { FloatingIcons } from '../components/ui/AnimatedIcons';
 
 export const CategoryPage = () => {
   const [, setLocation] = useLocation();
@@ -46,25 +48,25 @@ export const CategoryPage = () => {
 
   const CategoryCard = ({ category }: { category: Category }) => (
     <motion.div
-      className={`card-gradient p-6 cursor-pointer transition-all duration-300 ${
+      className={`card-3d p-6 cursor-pointer transition-all duration-300 ${
         selectedCategory?.id === category.id ? 'ring-2 ring-[var(--primary)]' : ''
       }`}
       onClick={() => handleCategorySelect(category)}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, rotateY: 5 }}
       whileTap={{ scale: 0.95 }}
     >
       <div className="text-center space-y-4">
-        <div className="w-16 h-16 mx-auto bg-[var(--primary-gradient)] rounded-xl flex items-center justify-center text-white text-2xl font-kusanagi">
+        <div className="w-16 h-16 mx-auto bg-[var(--primary-gradient)] rounded-xl flex items-center justify-center text-white text-2xl font-['Orbitron'] font-bold animate-neon-pulse">
           {category.name.charAt(0)}
         </div>
-        <h3 className="text-xl font-bold text-[var(--text-primary)] font-kusanagi">
+        <h3 className="text-xl font-bold text-[var(--text-primary)] font-['Orbitron']">
           {category.name}
         </h3>
-        <p className="text-[var(--text-secondary)] font-kusanagi">
+        <p className="text-[var(--text-secondary)] font-['Inter']">
           {category.description}
         </p>
-        <div className="text-sm text-[var(--primary)] font-kusanagi font-semibold">
-          {tools.filter(tool => tool.category.id === category.id).length} tools
+        <div className="text-sm text-[var(--primary)] font-['JetBrains_Mono'] font-bold tracking-wider">
+          {tools.filter(tool => tool.category.id === category.id).length} TOOLS
         </div>
       </div>
     </motion.div>
@@ -73,15 +75,21 @@ export const CategoryPage = () => {
   return (
     <div className="relative min-h-screen overflow-hidden">
       {/* Interactive Background */}
-      <InteractiveBackground />
+      <InteractiveBackground variant="cyber" />
+      <CyberGrid />
+      <MatrixRain density={8} variant="binary" />
+      <FloatingIcons />
+      <EasterEggs />
       
       {/* Background Elements */}
-      <div className="absolute inset-0">
-        <GradientOrb className="w-80 h-80 top-10 right-10" delay={0} />
-        <GradientOrb className="w-60 h-60 bottom-10 left-10" delay={3} />
+      <div className="background-layer">
+        <GradientOrb className="w-80 h-80 top-10 right-10" delay={0} variant="cyber" />
+        <GradientOrb className="w-60 h-60 bottom-10 left-10" delay={3} variant="energy" />
+        <QuantumOrb size={100} className="absolute top-40 left-40" variant="cyber" />
+        <QuantumOrb size={60} className="absolute bottom-40 right-40" variant="energy" />
       </div>
 
-      <div className="relative z-10 py-20">
+      <div className="main-content py-20">
         {/* Header Section */}
         <motion.section 
           className="text-center mobile-padding mb-16"
@@ -89,25 +97,29 @@ export const CategoryPage = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <FloatingCard delay={0.2}>
-            <GlassMorphism className="inline-block px-6 py-3 rounded-full mb-8">
-              <span className="text-sm font-medium text-gradient font-kusanagi">
-                Explore AI Categories
-              </span>
+          <FloatingCard delay={0.2} variant="cyber">
+            <GlassMorphism className="inline-block px-8 py-4 rounded-full mb-8" variant="cyber">
+              <motion.span 
+                className="text-sm font-medium text-gradient font-['JetBrains_Mono'] tracking-wider"
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
+                > EXPLORE AI CATEGORIES_
+              </motion.span>
             </GlassMorphism>
           </FloatingCard>
 
-          <h1 className="text-5xl md:text-6xl font-black mb-6 text-[var(--text-primary)] font-kusanagi">
-            AI Tool Categories
+          <h1 className="text-5xl md:text-6xl font-black mb-6 text-neon font-['Orbitron']">
+            AI TOOL CATEGORIES
           </h1>
-          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto font-kusanagi">
-            Discover AI tools organized by categories to find exactly what you need
+          <p className="text-xl text-[var(--text-secondary)] max-w-3xl mx-auto font-['Inter']">
+            Discover AI tools organized by categories to find exactly what you need for your next project
           </p>
         </motion.section>
 
         {/* Search Section */}
         <section className="max-w-4xl mx-auto mobile-padding mb-12">
-          <FloatingCard delay={0.4}>
+          <FloatingCard delay={0.4} variant="hologram">
             <GlassMorphism className="p-8 rounded-2xl">
               <div className="search-enhanced">
                 <SearchBar onSearch={handleSearch} />
@@ -123,8 +135,8 @@ export const CategoryPage = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
           >
-            <h2 className="text-3xl font-bold text-[var(--text-primary)] font-kusanagi mb-8 text-center">
-              Browse by Category
+            <h2 className="text-3xl font-bold text-neon font-['Orbitron'] mb-8 text-center">
+              BROWSE BY CATEGORY
             </h2>
             <div className="mobile-grid">
               {categories.map((category, index) => (
@@ -150,14 +162,14 @@ export const CategoryPage = () => {
               transition={{ duration: 0.6 }}
             >
               <div className="flex items-center justify-between mb-8">
-                <h2 className="text-3xl font-bold text-[var(--text-primary)] font-kusanagi">
-                  {selectedCategory.name} Tools
+                <h2 className="text-3xl font-bold text-neon font-['Orbitron']">
+                  {selectedCategory.name.toUpperCase()} TOOLS
                 </h2>
                 <button
                   onClick={() => setSelectedCategory(null)}
-                  className="btn-primary px-6 py-3 font-kusanagi"
+                  className="btn-cyberpunk px-6 py-3 font-['JetBrains_Mono']"
                 >
-                  View All Categories
+                  VIEW ALL CATEGORIES
                 </button>
               </div>
 
@@ -174,14 +186,17 @@ export const CategoryPage = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="animate-bounce-in">
-                    <h3 className="text-2xl font-bold text-[var(--text-primary)] font-kusanagi mb-4">
-                      No Tools Found
-                    </h3>
-                    <p className="text-[var(--text-secondary)] text-lg font-kusanagi">
-                      No tools found in this category matching your search.
-                    </p>
-                  </div>
+                  <FloatingCard variant="cyber">
+                    <GlassMorphism className="p-12 rounded-2xl">
+                      <QuantumOrb size={80} className="mx-auto mb-6" variant="cyber" />
+                      <h3 className="text-2xl font-bold text-neon font-['Orbitron'] mb-4">
+                        NO TOOLS FOUND
+                      </h3>
+                      <p className="text-[var(--text-secondary)] text-lg font-['JetBrains_Mono']">
+                        No tools found in this category matching your search.
+                      </p>
+                    </GlassMorphism>
+                  </FloatingCard>
                 </motion.div>
               ) : (
                 <ToolGrid tools={filteredTools} />
@@ -198,8 +213,8 @@ export const CategoryPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1.2 }}
             >
-              <h2 className="text-3xl font-bold text-[var(--text-primary)] font-kusanagi mb-8 text-center">
-                {searchQuery ? 'Search Results' : 'All AI Tools'}
+              <h2 className="text-3xl font-bold text-neon font-['Orbitron'] mb-8 text-center">
+                {searchQuery ? 'SEARCH RESULTS' : 'ALL AI TOOLS'}
               </h2>
 
               {loading ? (
@@ -215,14 +230,17 @@ export const CategoryPage = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <div className="animate-bounce-in">
-                    <h3 className="text-2xl font-bold text-[var(--text-primary)] font-kusanagi mb-4">
-                      No Tools Found
-                    </h3>
-                    <p className="text-[var(--text-secondary)] text-lg font-kusanagi">
-                      No AI tools found matching your search criteria.
-                    </p>
-                  </div>
+                  <FloatingCard variant="cyber">
+                    <GlassMorphism className="p-12 rounded-2xl">
+                      <QuantumOrb size={80} className="mx-auto mb-6" variant="cyber" />
+                      <h3 className="text-2xl font-bold text-neon font-['Orbitron'] mb-4">
+                        NO TOOLS FOUND
+                      </h3>
+                      <p className="text-[var(--text-secondary)] text-lg font-['JetBrains_Mono']">
+                        No AI tools found matching your search criteria.
+                      </p>
+                    </GlassMorphism>
+                  </FloatingCard>
                 </motion.div>
               ) : (
                 <ToolGrid tools={filteredTools} />
@@ -232,7 +250,6 @@ export const CategoryPage = () => {
         )}
       </div>
 
-      {/* Scroll to Top Button */}
       <ScrollToTop />
     </div>
   );

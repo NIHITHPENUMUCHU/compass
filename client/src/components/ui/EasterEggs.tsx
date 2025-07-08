@@ -71,7 +71,9 @@ const EasterEgg: React.FC<EasterEggProps> = ({ icon, position, delay = 0 }) => {
   const [showQuote, setShowQuote] = useState(false);
   const [currentQuote, setCurrentQuote] = useState<Quote>(quotes[0]);
 
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     setCurrentQuote(randomQuote);
     setShowQuote(true);
@@ -159,7 +161,7 @@ const EasterEgg: React.FC<EasterEggProps> = ({ icon, position, delay = 0 }) => {
 
 export const EasterEggs: React.FC = () => {
   return (
-    <>
+    <div className="interactive-layer">
       <EasterEgg
         icon={<Sparkles size={24} className="text-[var(--primary)]" />}
         position={{ top: '20%', left: '5%' }}
@@ -195,6 +197,6 @@ export const EasterEggs: React.FC = () => {
         position={{ top: '80%', left: '50%' }}
         delay={6}
       />
-    </>
+    </div>
   );
 };
