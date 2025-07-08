@@ -68,6 +68,50 @@ export const additionalTools: Tool[] = [
       { title: 'Generate Content', description: 'Create AI-powered content instantly' }
     ]
   },
+  {
+    id: 'text-11',
+    name: 'Wordtune',
+    description: 'AI writing companion that understands what you\'re trying to say and suggests ways to make your writing clearer',
+    category: { id: '1', name: 'Text Generation', icon: 'message-square', description: 'AI tools for generating and processing text' },
+    developer: 'AI21 Labs',
+    pricing: { type: 'freemium', startingPrice: '$13.99/month' },
+    features: ['Rewrite suggestions', 'Tone adjustment', 'Length control', 'Browser extension', 'Mobile app'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://wordtune.com',
+    rating: 4.5,
+    reviewCount: 12000,
+    lastUpdated: '2024-11-15',
+    releaseDate: '2020-10-01',
+    tutorialSteps: [
+      { title: 'Install Extension', description: 'Add Wordtune to your browser' },
+      { title: 'Start Writing', description: 'Get suggestions as you type' }
+    ]
+  },
+  {
+    id: 'text-12',
+    name: 'Anyword',
+    description: 'AI copywriting platform that predicts which copy will perform best for your audience',
+    category: { id: '1', name: 'Text Generation', icon: 'message-square', description: 'AI tools for generating and processing text' },
+    developer: 'Anyword',
+    pricing: { type: 'freemium', startingPrice: '$39/month' },
+    features: ['Performance prediction', 'A/B testing', 'Brand voice', 'Analytics', 'Team collaboration'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://anyword.com',
+    rating: 4.4,
+    reviewCount: 3200,
+    lastUpdated: '2024-10-20',
+    releaseDate: '2013-01-01',
+    tutorialSteps: [
+      { title: 'Set Target Audience', description: 'Define your audience parameters' },
+      { title: 'Generate Copy', description: 'Create optimized content with performance scores' }
+    ]
+  },
 
   // More Image Creation Tools
   {
@@ -116,28 +160,6 @@ export const additionalTools: Tool[] = [
   },
   {
     id: 'image-9',
-    name: 'Craiyon',
-    description: 'Free AI image generator (formerly DALL·E mini) accessible to everyone without restrictions',
-    category: { id: '2', name: 'Image Creation', icon: 'image', description: 'AI-powered image generation and editing tools' },
-    developer: 'Craiyon',
-    pricing: { type: 'free' },
-    features: ['Completely free', 'No sign-up required', 'Multiple image variations', 'Simple interface', 'Fast generation'],
-    screenshots: [
-      'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1561998338-13ad7883b20f?w=800&h=600&fit=crop'
-    ],
-    websiteUrl: 'https://craiyon.com',
-    rating: 4.2,
-    reviewCount: 5500,
-    lastUpdated: '2024-01-10',
-    releaseDate: '2022-07-01',
-    tutorialSteps: [
-      { title: 'Visit Website', description: 'Go to Craiyon.com - no signup needed' },
-      { title: 'Enter Prompt', description: 'Type your image description and generate' }
-    ]
-  },
-  {
-    id: 'image-10',
     name: 'Photosonic',
     description: 'AI art generator by Writesonic for creating digital artwork from text descriptions',
     category: { id: '2', name: 'Image Creation', icon: 'image', description: 'AI-powered image generation and editing tools' },
@@ -156,6 +178,28 @@ export const additionalTools: Tool[] = [
     tutorialSteps: [
       { title: 'Enter Description', description: 'Describe the image you want to create' },
       { title: 'Generate Art', description: 'Create stunning AI artwork instantly' }
+    ]
+  },
+  {
+    id: 'image-10',
+    name: 'Playground AI',
+    description: 'Free AI image generator with advanced editing capabilities and community features',
+    category: { id: '2', name: 'Image Creation', icon: 'image', description: 'AI-powered image generation and editing tools' },
+    developer: 'Playground AI',
+    pricing: { type: 'freemium', startingPrice: '$15/month' },
+    features: ['Free daily credits', 'Advanced editing', 'Community gallery', 'Multiple models', 'Canvas editor'],
+    screenshots: [
+      'https://images.unsplash.com/photo-1547036967-23d11aacaee0?w=800&h=600&fit=crop',
+      'https://images.unsplash.com/photo-1561998338-13ad7883b20f?w=800&h=600&fit=crop'
+    ],
+    websiteUrl: 'https://playgroundai.com',
+    rating: 4.6,
+    reviewCount: 8500,
+    lastUpdated: '2024-11-10',
+    releaseDate: '2021-01-01',
+    tutorialSteps: [
+      { title: 'Create Account', description: 'Sign up for free daily credits' },
+      { title: 'Generate Images', description: 'Create art with various AI models' }
     ]
   },
 
@@ -208,28 +252,6 @@ export const additionalTools: Tool[] = [
   // More Audio & Speech Tools
   {
     id: 'audio-4',
-    name: 'Descript',
-    description: 'All-in-one audio and video editing platform with AI-powered transcription and voice synthesis',
-    category: { id: '4', name: 'Audio & Speech', icon: 'mic', description: 'Voice synthesis and audio processing tools' },
-    developer: 'Descript',
-    pricing: { type: 'freemium', startingPrice: '$12/month' },
-    features: ['Audio transcription', 'Text-based editing', 'Voice cloning', 'Filler word removal', 'Collaboration tools'],
-    screenshots: [
-      'https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop'
-    ],
-    websiteUrl: 'https://descript.com',
-    rating: 4.6,
-    reviewCount: 3800,
-    lastUpdated: '2024-01-18',
-    releaseDate: '2017-01-01',
-    tutorialSteps: [
-      { title: 'Upload Audio', description: 'Import your audio or video files' },
-      { title: 'Edit with Text', description: 'Edit audio by editing the transcript' }
-    ]
-  },
-  {
-    id: 'audio-5',
     name: 'Resemble AI',
     description: 'AI voice generator for creating custom voices and speech synthesis with real-time capabilities',
     category: { id: '4', name: 'Audio & Speech', icon: 'mic', description: 'Voice synthesis and audio processing tools' },
@@ -320,28 +342,6 @@ export const additionalTools: Tool[] = [
       { title: 'Customize App', description: 'Design and configure your app' }
     ]
   },
-  {
-    id: 'app-5',
-    name: 'Thunkable',
-    description: 'Drag-and-drop platform for building mobile apps with AI components and cross-platform support',
-    category: { id: '7', name: 'App Development', icon: 'smartphone', description: 'No-code and AI-powered app building platforms' },
-    developer: 'Thunkable',
-    pricing: { type: 'freemium', startingPrice: '$25/month' },
-    features: ['Cross-platform apps', 'AI components', 'Live testing', 'Cloud database', 'App store deployment'],
-    screenshots: [
-      'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1536431311719-398b6704d4cc?w=800&h=600&fit=crop'
-    ],
-    websiteUrl: 'https://thunkable.com',
-    rating: 4.1,
-    reviewCount: 2800,
-    lastUpdated: '2024-09-25',
-    releaseDate: '2017-01-01',
-    tutorialSteps: [
-      { title: 'Start Project', description: 'Create new mobile app project' },
-      { title: 'Drag Components', description: 'Build app with visual components' }
-    ]
-  },
 
   // More Daily Life Tools
   {
@@ -368,28 +368,6 @@ export const additionalTools: Tool[] = [
   },
   {
     id: 'daily-7',
-    name: 'Todoist',
-    description: 'AI-enhanced task management and productivity app with natural language processing',
-    category: { id: '8', name: 'Daily Life', icon: 'heart', description: 'AI tools to enhance your everyday life and wellness' },
-    developer: 'Doist',
-    pricing: { type: 'freemium', startingPrice: '$4/month' },
-    features: ['Natural language input', 'Smart scheduling', 'Project templates', 'Productivity tracking', 'Team collaboration'],
-    screenshots: [
-      'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&h=600&fit=crop',
-      'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&h=600&fit=crop'
-    ],
-    websiteUrl: 'https://todoist.com',
-    rating: 4.6,
-    reviewCount: 25000,
-    lastUpdated: '2024-11-30',
-    releaseDate: '2007-01-01',
-    tutorialSteps: [
-      { title: 'Add Tasks', description: 'Create tasks with natural language' },
-      { title: 'Organize Projects', description: 'Structure your work and life' }
-    ]
-  },
-  {
-    id: 'daily-8',
     name: 'Lensa AI',
     description: 'AI photo editor for portrait enhancement, background removal, and artistic filters',
     category: { id: '8', name: 'Daily Life', icon: 'heart', description: 'AI tools to enhance your everyday life and wellness' },

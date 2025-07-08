@@ -10,6 +10,8 @@ import { FloatingCard, GlassMorphism, CyberGrid, QuantumOrb, MatrixRain } from '
 import { CardSkeleton, QuantumLoader } from '../components/ui/LoadingSpinner';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
+import { EasterEggs } from '../components/ui/EasterEggs';
+import { FloatingIcons } from '../components/ui/AnimatedIcons';
 
 export const HomePage = () => {
   const [, setLocation] = useLocation();
@@ -80,6 +82,19 @@ export const HomePage = () => {
           key={idx}
           className="inline-block font-['Orbitron'] font-black"
           style={{ color: useInnovaiColor ? 'var(--text-innovai)' : 'var(--primary)' }}
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ 
+            duration: 0.5, 
+            delay: idx * 0.05,
+            type: "spring",
+            stiffness: 100
+          }}
+          whileHover={{ 
+            scale: 1.2, 
+            rotate: [0, -10, 10, 0],
+            transition: { duration: 0.3 }
+          }}
         >
           {char === ' ' ? '\u00A0' : char}
         </motion.span>
@@ -93,6 +108,8 @@ export const HomePage = () => {
       <InteractiveBackground variant="cyber" />
       <CyberGrid />
       <MatrixRain density={8} variant="binary" />
+      <FloatingIcons />
+      <EasterEggs />
       
       {/* Background Elements */}
       <div className="absolute inset-0">
@@ -113,9 +130,13 @@ export const HomePage = () => {
         >
           <FloatingCard delay={0.2} variant="cyber" intensity={1.5}>
             <GlassMorphism className="inline-block px-8 py-4 rounded-full mb-8" variant="cyber">
-              <span className="text-sm font-medium text-gradient font-['JetBrains_Mono'] tracking-wider">
+              <motion.span 
+                className="text-sm font-medium text-gradient font-['JetBrains_Mono'] tracking-wider"
+                animate={{ opacity: [0.7, 1, 0.7] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              >
                 &gt; DISCOVER NEXT-GENERATION AI TOOLS_
-              </span>
+              </motion.span>
             </GlassMorphism>
           </FloatingCard>
 
@@ -154,18 +175,22 @@ export const HomePage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
             >
-              <button 
+              <motion.button 
                 onClick={handleExploreTools}
                 className="btn-primary text-lg px-10 py-5 font-['Orbitron'] tracking-wider"
+                whileHover={{ scale: 1.05, rotateX: 5 }}
+                whileTap={{ scale: 0.95 }}
               >
                 EXPLORE TOOLS
-              </button>
-              <button 
+              </motion.button>
+              <motion.button 
                 onClick={handleLearnMore}
                 className="btn-cyberpunk px-8 py-4 font-['JetBrains_Mono']"
+                whileHover={{ scale: 1.05, rotateY: 5 }}
+                whileTap={{ scale: 0.95 }}
               >
                 LEARN MORE
-              </button>
+              </motion.button>
             </motion.div>
           </FloatingCard>
         </motion.section>
@@ -226,7 +251,10 @@ export const HomePage = () => {
             <FloatingCard variant="hologram">
               <GlassMorphism className="p-8 rounded-2xl">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                  <div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotateY: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
                     <motion.div 
                       className="text-5xl font-black text-neon font-['Orbitron'] mb-2"
                       animate={{ scale: [1, 1.1, 1] }}
@@ -235,8 +263,11 @@ export const HomePage = () => {
                       {tools.length}+
                     </motion.div>
                     <div className="text-[var(--text-secondary)] font-['JetBrains_Mono'] tracking-wider">AI TOOLS</div>
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotateY: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
                     <motion.div 
                       className="text-5xl font-black text-neon font-['Orbitron'] mb-2"
                       animate={{ scale: [1, 1.1, 1] }}
@@ -245,8 +276,11 @@ export const HomePage = () => {
                       8
                     </motion.div>
                     <div className="text-[var(--text-secondary)] font-['JetBrains_Mono'] tracking-wider">CATEGORIES</div>
-                  </div>
-                  <div>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotateY: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
                     <motion.div 
                       className="text-5xl font-black text-neon font-['Orbitron'] mb-2"
                       animate={{ scale: [1, 1.1, 1] }}
@@ -255,7 +289,7 @@ export const HomePage = () => {
                       100%
                     </motion.div>
                     <div className="text-[var(--text-secondary)] font-['JetBrains_Mono'] tracking-wider">AUTHENTIC</div>
-                  </div>
+                  </motion.div>
                 </div>
               </GlassMorphism>
             </FloatingCard>
@@ -313,6 +347,7 @@ export const HomePage = () => {
                     <motion.button
                       key={i + 1}
                       whileTap={{ scale: 0.95 }}
+                      whileHover={{ scale: 1.05, rotateZ: 5 }}
                       onClick={() => setCurrentPage(i + 1)}
                       className={`px-6 py-3 rounded-xl font-['JetBrains_Mono'] font-bold transition-all duration-300 ${
                         currentPage === i + 1
