@@ -86,7 +86,7 @@ export const AboutPage = () => {
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                > ABOUT INNOVAI COMPASS_
+                {'>'} ABOUT INNOVAI COMPASS_
               </motion.span>
             </GlassMorphism>
           </FloatingCard>

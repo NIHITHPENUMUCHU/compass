@@ -104,7 +104,7 @@ export const CategoryPage = () => {
                 animate={{ opacity: [0.7, 1, 0.7] }}
                 transition={{ duration: 2, repeat: Infinity }}
               >
-                > EXPLORE AI CATEGORIES_
+                {'>'} EXPLORE AI CATEGORIES_
               </motion.span>
             </GlassMorphism>
           </FloatingCard>
