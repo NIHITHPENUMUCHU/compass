@@ -19,9 +19,9 @@
   --bg-tertiary: #f1f5f9;
   
   /* Text colors - Improved contrast for light mode */
-  --text-primary: #1a1a1a;
-  --text-secondary: #4a4a4a;
-  --text-tertiary: #6a6a6a;
+  --text-primary: #2d1b1b;
+  --text-secondary: #e22a2a;
+  --text-tertiary: #8b4444;
   --text-innovai: #c4456c;
   
   /* Border colors */
@@ -786,36 +786,14 @@
   position: fixed;
   cursor: pointer;
   transition: all 0.3s ease;
-  z-index: 50;
+  z-index: 1000;
   pointer-events: auto;
+  user-select: none;
 }
 
 .easter-egg:hover {
   transform: scale(1.2);
   filter: drop-shadow(0 0 10px var(--primary));
-}
-
-.quote-modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: var(--bg-secondary);
-  border: 2px solid var(--primary);
-  border-radius: 20px;
-  padding: 30px;
-  max-width: 500px;
-  z-index: 1000;
-  box-shadow: var(--shadow-cyber);
-  backdrop-filter: blur(20px);
-}
-
-.quote-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 999;
-  backdrop-filter: blur(5px);
 }
 
 /* Scroll Effects */
@@ -1081,7 +1059,7 @@
 .interactive-layer {
   position: fixed;
   inset: 0;
-  z-index: 3;
+  z-index: 999;
   pointer-events: none;
 }
 

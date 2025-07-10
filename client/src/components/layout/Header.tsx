@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'wouter';
 import { Compass, Sun, Moon, Menu, X } from 'lucide-react';
 import { useTheme } from '../../context/ThemeContext';
+import { Logo } from '../ui/Logo';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Header = () => {
@@ -12,35 +13,8 @@ export const Header = () => {
     <header className="bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl fixed w-full top-0 z-50 border-b border-gray-200 dark:border-gray-700">
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-3">
-            <motion.div
-              animate={{ 
-                rotate: 360
-              }}
-              transition={{
-                duration: 15,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-              className="relative"
-            >
-              <div className="absolute -inset-2 bg-[var(--primary-gradient)] rounded-full blur-lg opacity-60 animate-neon-pulse"></div>
-              <div className="relative bg-white dark:bg-gray-900 rounded-full p-3 border-2 border-[var(--primary)]">
-                <Compass 
-                  size={28} 
-                  className="text-[var(--primary)]"
-                />
-              </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="text-2xl font-bold text-gradient font-['Orbitron']">
-                InnovAI Compass
-              </span>
-            </motion.div>
+          <Link to="/">
+            <Logo />
           </Link>
           
           <div className="flex items-center space-x-6">
