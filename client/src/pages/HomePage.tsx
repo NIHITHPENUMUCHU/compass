@@ -6,6 +6,7 @@ import { Tool } from '../types';
 import { SearchBar } from '../components/tools/SearchBar';
 import { CategoryFilter } from '../components/tools/CategoryFilter';
 import { ToolGrid } from '../components/tools/ToolGrid';
+import { LayoutToggle } from '../components/ui/LayoutToggle';
 import { FloatingCard, GlassMorphism, CyberGrid, QuantumOrb, MatrixRain } from '../components/ui/3DElements';
 import { CardSkeleton, QuantumLoader } from '../components/ui/LoadingSpinner';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
@@ -212,14 +213,14 @@ export const HomePage = () => {
         </section>
         
         {/* Filters Section */}
-        <section className="max-w-7xl mx-auto mobile-padding mb-16">
+        <section className="max-w-7xl mx-auto mobile-padding mb-8">
           <motion.div 
             className="animate-slide-up"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1 }}
           >
-            <GlassMorphism className="p-8 rounded-xl" variant="cyber">
+            <GlassMorphism className="p-6 rounded-xl" variant="cyber">
               <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
                 <CategoryFilter
                   selectedCategory={selectedCategory}
@@ -236,6 +237,24 @@ export const HomePage = () => {
                     <option value="updated">Recently Updated</option>
                   </select>
                 </div>
+              </div>
+            </GlassMorphism>
+          </motion.div>
+        </section>
+
+        {/* Layout Toggle Section */}
+        <section className="max-w-7xl mx-auto mobile-padding mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1 }}
+          >
+            <GlassMorphism className="p-4 rounded-xl" variant="cyber">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-['JetBrains_Mono'] text-[var(--text-secondary)]">
+                  Display Options:
+                </span>
+                <LayoutToggle />
               </div>
             </GlassMorphism>
           </motion.div>

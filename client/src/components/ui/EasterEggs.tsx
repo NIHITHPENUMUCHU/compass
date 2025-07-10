@@ -109,8 +109,8 @@ export const EasterEggs: React.FC = () => {
     <>
       <div className="interactive-layer">
         <EasterEgg
-          icon={<Sparkles size={24} className="text-[var(--primary)]" />}
-          position={{ top: '20%', left: '5%' }}
+          icon={<div className="w-3 h-3 bg-[var(--primary)] rounded-full opacity-30 hover:opacity-100 transition-opacity duration-300" />}
+          position={{ top: '15%', left: '3%' }}
           delay={1}
           eggId={0}
           onFound={handleEggFound}
@@ -118,8 +118,8 @@ export const EasterEggs: React.FC = () => {
         />
         
         <EasterEgg
-          icon={<Zap size={28} className="text-yellow-500" />}
-          position={{ top: '60%', right: '8%' }}
+          icon={<div className="w-2 h-2 bg-yellow-500 rounded-full opacity-20 hover:opacity-100 transition-opacity duration-300" />}
+          position={{ top: '25%', right: '5%' }}
           delay={2}
           eggId={1}
           onFound={handleEggFound}
@@ -127,8 +127,8 @@ export const EasterEggs: React.FC = () => {
         />
         
         <EasterEgg
-          icon={<Heart size={26} className="text-red-500" />}
-          position={{ bottom: '30%', left: '10%' }}
+          icon={<div className="w-2 h-2 bg-red-500 rounded-full opacity-25 hover:opacity-100 transition-opacity duration-300" />}
+          position={{ bottom: '35%', left: '7%' }}
           delay={3}
           eggId={2}
           onFound={handleEggFound}
@@ -136,8 +136,8 @@ export const EasterEggs: React.FC = () => {
         />
         
         <EasterEgg
-          icon={<Star size={24} className="text-blue-500" />}
-          position={{ top: '40%', left: '15%' }}
+          icon={<div className="w-2 h-2 bg-blue-500 rounded-full opacity-20 hover:opacity-100 transition-opacity duration-300" />}
+          position={{ top: '45%', left: '12%' }}
           delay={4}
           eggId={3}
           onFound={handleEggFound}
@@ -145,8 +145,8 @@ export const EasterEggs: React.FC = () => {
         />
         
         <EasterEgg
-          icon={<Rocket size={30} className="text-purple-500" />}
-          position={{ bottom: '20%', right: '15%' }}
+          icon={<div className="w-3 h-3 bg-purple-500 rounded-full opacity-25 hover:opacity-100 transition-opacity duration-300" />}
+          position={{ bottom: '25%', right: '12%' }}
           delay={5}
           eggId={4}
           onFound={handleEggFound}
@@ -154,8 +154,8 @@ export const EasterEggs: React.FC = () => {
         />
         
         <EasterEgg
-          icon={<Gift size={22} className="text-green-500" />}
-          position={{ bottom: '50%', left: '50%' }}
+          icon={<div className="w-2 h-2 bg-green-500 rounded-full opacity-15 hover:opacity-100 transition-opacity duration-300" />}
+          position={{ bottom: '55%', left: '45%' }}
           delay={6}
           eggId={5}
           onFound={handleEggFound}

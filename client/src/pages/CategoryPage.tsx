@@ -6,6 +6,7 @@ import { categories } from '../data/mockCategories';
 import { Tool, Category } from '../types';
 import { SearchBar } from '../components/tools/SearchBar';
 import { ToolGrid } from '../components/tools/ToolGrid';
+import { LayoutToggle } from '../components/ui/LayoutToggle';
 import { FloatingCard, GlassMorphism, CyberGrid, QuantumOrb, MatrixRain } from '../components/ui/3DElements';
 import { LoadingSpinner, CardSkeleton } from '../components/ui/LoadingSpinner';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
@@ -118,14 +119,32 @@ export const CategoryPage = () => {
         </motion.section>
 
         {/* Search Section */}
-        <section className="max-w-4xl mx-auto mobile-padding mb-12">
+        <section className="max-w-4xl mx-auto mobile-padding mb-8">
           <FloatingCard delay={0.4} variant="hologram">
-            <GlassMorphism className="p-8 rounded-2xl">
+            <GlassMorphism className="p-6 rounded-2xl">
               <div className="search-enhanced">
                 <SearchBar onSearch={handleSearch} />
               </div>
             </GlassMorphism>
           </FloatingCard>
+        </section>
+
+        {/* Layout Toggle Section */}
+        <section className="max-w-4xl mx-auto mobile-padding mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            <GlassMorphism className="p-4 rounded-xl" variant="cyber">
+              <div className="flex justify-between items-center">
+                <span className="text-sm font-['JetBrains_Mono'] text-[var(--text-secondary)]">
+                  Display Options:
+                </span>
+                <LayoutToggle />
+              </div>
+            </GlassMorphism>
+          </motion.div>
         </section>
 
         {/* Categories Grid */}
