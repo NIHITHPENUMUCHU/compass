@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { useLocation } from 'wouter';
-import { FloatingCard, GlassMorphism, CyberGrid, QuantumOrb, MatrixRain } from '../components/ui/3DElements';
+import { FloatingCard, GlassMorphism } from '../components/ui/3DElements';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
 import { DeveloperProfile } from '../components/ui/DeveloperProfile';
-import { EasterEggs } from '../components/ui/EasterEggs';
-import { FloatingIcons } from '../components/ui/AnimatedIcons';
 
 export const AboutPage = () => {
   const [, setLocation] = useLocation();
@@ -57,18 +55,11 @@ export const AboutPage = () => {
     <div className="relative min-h-screen overflow-hidden">
       {/* Interactive Background */}
       <InteractiveBackground variant="cyber" />
-      <CyberGrid />
-      <MatrixRain density={8} variant="binary" />
-      <FloatingIcons />
-      <EasterEggs />
       
       {/* Background Elements */}
       <div className="background-layer">
-        <GradientOrb className="w-96 h-96 top-20 left-20" delay={0} variant="cyber" />
-        <GradientOrb className="w-80 h-80 bottom-20 right-20" delay={2} variant="energy" />
-        <GradientOrb className="w-64 h-64 top-1/2 right-10" delay={4} />
-        <QuantumOrb size={120} className="absolute top-32 right-32" variant="cyber" />
-        <QuantumOrb size={80} className="absolute bottom-32 left-32" variant="energy" />
+        <GradientOrb className="w-64 h-64 top-20 left-20" delay={0} variant="cyber" />
+        <GradientOrb className="w-48 h-48 bottom-20 right-20" delay={2} variant="energy" />
       </div>
 
       <div className="main-content py-20">

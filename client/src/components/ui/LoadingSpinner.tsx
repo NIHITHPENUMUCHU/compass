@@ -21,7 +21,13 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
 
   if (variant === 'quantum') {
     return (
-      <div className={`loading-quantum ${sizeClasses[size]} ${className}`} />
+      <motion.div 
+        className={`${sizeClasses[size]} ${className}`}
+        animate={{ rotate: 360 }}
+        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+      >
+        <div className="w-full h-full border-4 border-transparent border-t-[var(--primary)] border-r-[var(--primary-light)] rounded-full" />
+      </motion.div>
     );
   }
 

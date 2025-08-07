@@ -8,22 +8,6 @@ export const FloatingCard: React.FC<{
   intensity?: number;
   variant?: 'default' | 'cyber' | 'hologram';
 }> = ({ children, className = '', delay = 0, intensity = 1, variant = 'default' }) => {
-  const controls = useAnimation();
-
-  useEffect(() => {
-    controls.start({
-      y: [0, -10 * intensity, 0],
-      rotateX: [0, 5 * intensity, 0],
-      rotateY: [0, 3 * intensity, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay
-      }
-    });
-  }, [controls, delay, intensity]);
-
   const cardClass = variant === 'cyber' ? 'card-3d cyber-border' : 
                    variant === 'hologram' ? 'card-holographic' : 'card-3d';
 
@@ -272,113 +256,16 @@ export const QuantumOrb: React.FC<{
   size?: number;
   className?: string;
   variant?: 'default' | 'cyber' | 'energy';
-}> = ({ size = 100, className = '', variant = 'default' }) => (
-  <motion.div
-    className={`relative ${className}`}
-    style={{ width: size, height: size }}
-  >
-    <motion.div
-      className={`absolute inset-0 rounded-full ${
-        variant === 'cyber' ? 'bg-[var(--cyber-gradient)]' :
-        variant === 'energy' ? 'bg-[var(--primary-gradient)] animate-energy-pulse' :
-        'bg-[var(--primary-gradient)]'
-      } opacity-60`}
-      animate={{
-        scale: [1, 1.2, 1],
-        rotate: [0, 360],
-        opacity: [0.6, 0.8, 0.6]
-      }}
-      transition={{
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    />
-    <motion.div
-      className="absolute inset-2 rounded-full border-2 border-[var(--primary)]"
-      animate={{
-        rotate: [0, -360],
-        scale: [0.8, 1, 0.8]
-      }}
-      transition={{
-        duration: 3,
-        repeat: Infinity,
-        ease: "linear"
-      }}
-    />
-    <motion.div
-      className="absolute inset-4 rounded-full bg-[var(--primary)] opacity-80"
-      animate={{
-        scale: [0.5, 1, 0.5],
-        opacity: [0.8, 0.4, 0.8]
-      }}
-      transition={{
-        duration: 2,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }}
-    />
-    {variant === 'cyber' && (
-      <motion.div
-        className="absolute inset-6 rounded-full border border-[var(--primary-light)]"
-        animate={{
-          rotate: [360, 0],
-          scale: [0.3, 0.7, 0.3]
-        }}
-        transition={{
-          duration: 1.5,
-          repeat: Infinity,
-          ease: "linear"
-        }}
-      />
-    )}
-  </motion.div>
-);
+}> = ({ size = 100, className = '', variant = 'default' }) => {
+  return null; // Removed for performance
+};
 
 export const MatrixRain: React.FC<{
   className?: string;
   density?: number;
   variant?: 'binary' | 'hex' | 'symbols';
-}> = ({ className = '', density = 15, variant = 'binary' }) => {
-  const getRandomChar = () => {
-    switch (variant) {
-      case 'binary':
-        return Math.random() > 0.5 ? '1' : '0';
-      case 'hex':
-        return Math.floor(Math.random() * 16).toString(16).toUpperCase();
-      case 'symbols':
-        return String.fromCharCode(Math.random() * 26 + 65);
-      default:
-        return '1';
-    }
-  };
-
-  return (
-    <div className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>
-      {Array.from({ length: density }).map((_, i) => (
-        <motion.div
-          key={i}
-          className="matrix-rain absolute font-['JetBrains_Mono']"
-          style={{
-            left: `${(100 / density) * i}%`,
-            fontSize: Math.random() * 8 + 12,
-          }}
-          animate={{
-            y: ['-100vh', '100vh'],
-            opacity: [0, 1, 0]
-          }}
-          transition={{
-            duration: Math.random() * 4 + 3,
-            repeat: Infinity,
-            delay: Math.random() * 3,
-            ease: "linear"
-          }}
-        >
-          {getRandomChar()}
-        </motion.div>
-      ))}
-    </div>
-  );
+}> = ({ className = '', density = 5, variant = 'binary' }) => {
+  return null; // Removed for performance
 };
 
 export const HoverCard3D: React.FC<{

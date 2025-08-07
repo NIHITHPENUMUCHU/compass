@@ -4,11 +4,9 @@ import { motion } from 'framer-motion';
 import { RatingStars } from '../components/tools/RatingStars';
 import { tools } from '../data/mockTools';
 import { ExternalLink, Calendar, User, DollarSign, Star, Zap, Shield, Globe } from 'lucide-react';
-import { FloatingCard, GlassMorphism, CyberGrid, QuantumOrb, MatrixRain } from '../components/ui/3DElements';
+import { FloatingCard, GlassMorphism } from '../components/ui/3DElements';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
-import { EasterEggs } from '../components/ui/EasterEggs';
-import { FloatingIcons } from '../components/ui/AnimatedIcons';
 
 export const ToolDetailsPage = () => {
   const [match, params] = useRoute('/tool/:id');
@@ -18,15 +16,13 @@ export const ToolDetailsPage = () => {
     return (
       <div className="relative min-h-screen overflow-hidden">
         <InteractiveBackground variant="cyber" />
-        <CyberGrid />
-        <MatrixRain density={8} variant="binary" />
-        <FloatingIcons />
-        <EasterEggs />
         
         <div className="main-content flex items-center justify-center min-h-screen">
           <FloatingCard variant="cyber">
             <GlassMorphism className="p-12 rounded-2xl text-center">
-              <QuantumOrb size={80} className="mx-auto mb-6" variant="cyber" />
+              <div className="w-20 h-20 mx-auto mb-6 bg-[var(--primary)] rounded-full flex items-center justify-center">
+                <span className="text-white text-2xl font-bold">?</span>
+              </div>
               <h2 className="text-3xl font-bold text-neon font-['Orbitron'] mb-4">
                 TOOL NOT FOUND
               </h2>
@@ -45,17 +41,11 @@ export const ToolDetailsPage = () => {
     <div className="relative min-h-screen overflow-hidden">
       {/* Interactive Background */}
       <InteractiveBackground variant="cyber" />
-      <CyberGrid />
-      <MatrixRain density={8} variant="binary" />
-      <FloatingIcons />
-      <EasterEggs />
       
       {/* Background Elements */}
       <div className="background-layer">
-        <GradientOrb className="w-96 h-96 top-20 left-10" delay={0} variant="cyber" />
-        <GradientOrb className="w-64 h-64 bottom-20 right-10" delay={2} variant="energy" />
-        <QuantumOrb size={120} className="absolute top-32 right-32" variant="cyber" />
-        <QuantumOrb size={80} className="absolute bottom-32 left-32" variant="energy" />
+        <GradientOrb className="w-64 h-64 top-20 left-10" delay={0} variant="cyber" />
+        <GradientOrb className="w-48 h-48 bottom-20 right-10" delay={2} variant="energy" />
       </div>
 
       <div className="main-content tool-details-container">

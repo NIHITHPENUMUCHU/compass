@@ -7,12 +7,10 @@ import { Tool, Category } from '../types';
 import { SearchBar } from '../components/tools/SearchBar';
 import { ToolGrid } from '../components/tools/ToolGrid';
 import { LayoutToggle } from '../components/ui/LayoutToggle';
-import { FloatingCard, GlassMorphism, CyberGrid, QuantumOrb, MatrixRain } from '../components/ui/3DElements';
+import { FloatingCard, GlassMorphism } from '../components/ui/3DElements';
 import { LoadingSpinner, CardSkeleton } from '../components/ui/LoadingSpinner';
 import { InteractiveBackground, GradientOrb } from '../components/ui/InteractiveBackground';
 import { ScrollToTop } from '../components/ui/ScrollToTop';
-import { EasterEggs } from '../components/ui/EasterEggs';
-import { FloatingIcons } from '../components/ui/AnimatedIcons';
 
 export const CategoryPage = () => {
   const [, setLocation] = useLocation();
@@ -77,17 +75,11 @@ export const CategoryPage = () => {
     <div className="relative min-h-screen overflow-hidden">
       {/* Interactive Background */}
       <InteractiveBackground variant="cyber" />
-      <CyberGrid />
-      <MatrixRain density={8} variant="binary" />
-      <FloatingIcons />
-      <EasterEggs />
       
       {/* Background Elements */}
       <div className="background-layer">
-        <GradientOrb className="w-80 h-80 top-10 right-10" delay={0} variant="cyber" />
-        <GradientOrb className="w-60 h-60 bottom-10 left-10" delay={3} variant="energy" />
-        <QuantumOrb size={100} className="absolute top-40 left-40" variant="cyber" />
-        <QuantumOrb size={60} className="absolute bottom-40 right-40" variant="energy" />
+        <GradientOrb className="w-64 h-64 top-10 right-10" delay={0} variant="cyber" />
+        <GradientOrb className="w-48 h-48 bottom-10 left-10" delay={3} variant="energy" />
       </div>
 
       <div className="main-content py-20">

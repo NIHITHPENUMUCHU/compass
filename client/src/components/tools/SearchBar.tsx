@@ -167,7 +167,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
         <AnimatePresence>
           {showResults && (isFocused || query) && (
             <motion.div
-              className="search-results"
+              className="absolute top-full left-0 right-0 mt-2 bg-[var(--bg-primary)] border-2 border-[var(--primary)] rounded-xl max-h-96 overflow-y-auto z-50 backdrop-blur-sm"
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
@@ -185,7 +185,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
                   {searchResults.map((tool, index) => (
                     <motion.div
                       key={tool.id}
-                      className="search-result-item"
+                      className="p-3 border-b border-[var(--border-primary)] cursor-pointer hover:bg-[var(--bg-secondary)] transition-colors last:border-b-0"
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.05 }}
